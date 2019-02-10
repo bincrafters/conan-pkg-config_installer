@@ -1,7 +1,7 @@
 build: false
 
 environment:
-    PYTHON: "C:\\Python37"
+    PYTHON_HOME: "C:\\Python37"
 
     matrix:
         - MINGW_CONFIGURATIONS: "8@x86@dwarf2@posix"
@@ -10,7 +10,7 @@ environment:
           ARCH: x86_64
 
 install:
-  - set PATH=%PYTHON%;%PYTHON%/Scripts/;%PATH%
+  - set PATH=%PYTHON_HOME%;%PYTHON_HOME%/Scripts/;%PATH%
   - pip.exe install conan --upgrade
   - pip.exe install conan_package_tools bincrafters_package_tools
   - conan user # It creates the conan data directory

@@ -24,10 +24,6 @@ class PkgConfigConan(ConanFile):
     def _is_mingw_windows(self):
         return self.settings.os_build == "Windows" and self.settings.compiler == "gcc" and os.name == "nt"
 
-    def configure(self):
-        if self.settings.compiler == "Visual Studio":
-            raise ConanInvalidConfiguration("MSVC build is complicated, use MinGW to build Windows installer")
-
     def build_requirements(self):
         if self._is_mingw_windows:
             self.build_requires("msys2_installer/latest@bincrafters/stable")

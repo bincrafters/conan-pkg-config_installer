@@ -20,7 +20,8 @@ if __name__ == "__main__":
             settings["compiler.exception"] = tokens[2]
             settings["compiler.threads"] = tokens[3]
             settings["compiler.libcxx"] = "libstdc++11"
-            builder.add(settings, {}, {}, {})
+            build_requires = {"*": "mingw_installer/1.0@conan/stable"}
+            builder.add(settings, {}, {}, build_requires)
     else:
         builder.add(settings, {}, {}, {})
     builder.run()

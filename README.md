@@ -2,7 +2,7 @@
 
 | Bintray | Windows | Linux & macOS |
 |:--------:|:---------:|:-----------------:|
-|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/pkg-config_installer%3Abincrafters/images/download.svg) ](https://bintray.com/bincrafters/public-conan/pkg-config_installer%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-pkg-config-installer?svg=true)](https://ci.appveyor.com/project/bincrafters/conan-pkg-config-installer)|[![Build Status](https://travis-ci.com/bincrafters/conan-pkg-config_installer.svg)](https://travis-ci.com/bincrafters/conan-pkg-config_installer)|
+|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/pkg-config_installer%3Abincrafters/images/download.svg) ](https://bintray.com/bincrafters/public-conan/pkg-config_installer%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-pkg-config_installer?svg=true)](https://ci.appveyor.com/project/bincrafters/conan-pkg-config_installer)|[![Build Status](https://travis-ci.com/bincrafters/conan-pkg-config_installer.svg)](https://travis-ci.com/bincrafters/conan-pkg-config_installer)|
 
 ## Conan Information
 

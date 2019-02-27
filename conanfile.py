@@ -35,6 +35,9 @@ class PkgConfigConan(ConanFile):
         os.rename("pkg-config-" + self.version, self._source_subfolder)
 
     def build(self):
+        if self.settings.compiler == "Visual Studio":
+            raise ConanInvalidConfiguration("builds with Visual Studio aren't currently supported, "
+                                            "use MinGW instead to build for Windows")
         with tools.chdir(self._source_subfolder):
             # http://www.linuxfromscratch.org/lfs/view/systemd/chapter06/pkg-config.html
             args = ["--with-internal-glib", "--disable-host-tool"]

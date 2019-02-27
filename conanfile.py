@@ -11,8 +11,8 @@ class PkgConfigConan(ConanFile):
     version = "0.29.2"
     description = "The pkg-config program is used to retrieve information about installed libraries in the system"
     topics = ("conan", "pkg-config", "package config")
-    url = "https://github.com/bincrafters/conan-libname"
-    homepage = "https://github.com/original_author/original_lib"
+    url = "https://github.com/bincrafters/conan-pkg-config_installer"
+    homepage = "https://www.freedesktop.org/wiki/Software/pkg-config/"
     author = "Bincrafters <bincrafters@gmail.com>"
     license = "GPL-2.0-or-later"
     exports = ["LICENSE.md"]

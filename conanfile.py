@@ -11,8 +11,8 @@ class PkgConfigConan(ConanFile):
     version = "0.29.2"
     description = "The pkg-config program is used to retrieve information about installed libraries in the system"
     topics = ("conan", "pkg-config", "package config")
-    url = "https://github.com/bincrafters/conan-libname"
-    homepage = "https://github.com/original_author/original_lib"
+    url = "https://github.com/bincrafters/conan-pkg-config_installer"
+    homepage = "https://www.freedesktop.org/wiki/Software/pkg-config/"
     author = "Bincrafters <bincrafters@gmail.com>"
     license = "GPL-2.0-or-later"
     exports = ["LICENSE.md"]
@@ -35,6 +35,9 @@ class PkgConfigConan(ConanFile):
         os.rename("pkg-config-" + self.version, self._source_subfolder)
 
     def build(self):
+        if self.settings.compiler == "Visual Studio":
+            raise ConanInvalidConfiguration("builds with Visual Studio aren't currently supported, "
+                                            "use MinGW instead to build for Windows")
         with tools.chdir(self._source_subfolder):
             # http://www.linuxfromscratch.org/lfs/view/systemd/chapter06/pkg-config.html
             args = ["--with-internal-glib", "--disable-host-tool"]
@@ -44,7 +47,7 @@ class PkgConfigConan(ConanFile):
             env_build.install()
 
     def package(self):
-        self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
+        self.copy(pattern="COPYING", dst="licenses", src=self._source_subfolder)
         if self._is_mingw_windows:
             mingw_bin = os.path.join(self.deps_cpp_info["mingw_installer"].rootpath, "bin")
             self.copy(pattern="libwinpthread-1.dll", dst="bin", src=mingw_bin)

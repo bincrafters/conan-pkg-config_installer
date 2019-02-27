@@ -47,7 +47,7 @@ class PkgConfigConan(ConanFile):
             env_build.install()
 
     def package(self):
-        self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
+        self.copy(pattern="COPYING", dst="licenses", src=self._source_subfolder)
         if self._is_mingw_windows:
             mingw_bin = os.path.join(self.deps_cpp_info["mingw_installer"].rootpath, "bin")
             self.copy(pattern="libwinpthread-1.dll", dst="bin", src=mingw_bin)

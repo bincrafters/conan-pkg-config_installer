@@ -25,7 +25,7 @@ class PkgConfigConan(ConanFile):
         return self.settings.os_build == "Windows" and self.settings.compiler == "gcc" and os.name == "nt"
 
     def build_requirements(self):
-        if self._is_mingw_windows:
+        if self._is_mingw_windows and "CONAN_BASH_PATH" not in os.environ:
             self.build_requires("msys2_installer/latest@bincrafters/stable")
 
     def source(self):
@@ -49,8 +49,8 @@ class PkgConfigConan(ConanFile):
     def package(self):
         self.copy(pattern="COPYING", dst="licenses", src=self._source_subfolder)
         if self._is_mingw_windows:
-            mingw_bin = os.path.join(self.deps_cpp_info["mingw_installer"].rootpath, "bin")
-            self.copy(pattern="libwinpthread-1.dll", dst="bin", src=mingw_bin)
+            package_folder = tools.unix_path(os.path.join(self.package_folder, "bin"))
+            tools.run_in_windows_bash(self, "cp $(which libwinpthread-1.dll) {}".format(package_folder))
 
     def package_id(self):
         del self.info.settings.compiler

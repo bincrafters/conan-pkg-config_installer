@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from conans import ConanFile, tools, AutoToolsBuildEnvironment
 from conans.errors import ConanInvalidConfiguration
 import os
@@ -13,7 +10,6 @@ class PkgConfigConan(ConanFile):
     topics = ("conan", "pkg-config", "package config")
     url = "https://github.com/bincrafters/conan-pkg-config_installer"
     homepage = "https://www.freedesktop.org/wiki/Software/pkg-config/"
-    author = "Bincrafters <bincrafters@gmail.com>"
     license = "GPL-2.0-or-later"
     exports = ["LICENSE.md"]
     settings = "os_build", "arch_build", "compiler"
@@ -26,7 +22,7 @@ class PkgConfigConan(ConanFile):
 
     def build_requirements(self):
         if self._is_mingw_windows and "CONAN_BASH_PATH" not in os.environ:
-            self.build_requires("msys2_installer/latest@bincrafters/stable")
+            self.build_requires("msys2/20161025")
 
     def source(self):
         source_url = "https://pkg-config.freedesktop.org/releases/pkg-config-%s.tar.gz" % self.version

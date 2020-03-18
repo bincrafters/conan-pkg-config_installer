@@ -7,7 +7,7 @@ import os
 
 if __name__ == "__main__":
 
-    arch = os.environ["ARCH"]
+    arch = os.getenv("ARCH", "x86_64")
     builder = build_template_installer.get_builder()
     settings = {"os": build_shared.get_os(), "arch_build": arch, "arch": arch}
     if "MINGW_CONFIGURATIONS" in os.environ:

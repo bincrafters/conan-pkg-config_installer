@@ -11,7 +11,6 @@ class PkgConfigConan(ConanFile):
     url = "https://github.com/bincrafters/conan-pkg-config_installer"
     homepage = "https://www.freedesktop.org/wiki/Software/pkg-config/"
     license = "GPL-2.0-or-later"
-    exports = ["LICENSE.md"]
     settings = "os_build", "arch_build", "compiler"
     _source_subfolder = "source_subfolder"
     _build_subfolder = "build_subfolder"
